@@ -5,6 +5,7 @@ RUN dpkg --add-architecture i386
 RUN buildDeps='software-properties-common'; \
     set -x && \
     apt-get update && apt-get install -y $buildDeps --no-install-recommends;
+RUN apt-get -y install gpg-agent
 RUN apt-get install -y wget
 RUN wget -O - https://mcpelauncher.mrarm.io/apt/conf/public.gpg.key | apt-key add -
 RUN add-apt-repository 'deb http://mcpelauncher.mrarm.io/apt/ubuntu/ bionic main'
